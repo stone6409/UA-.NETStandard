@@ -1,4 +1,4 @@
-﻿using Opc.Ua;
+using Opc.Ua;
 using Opc.Ua.Configuration;
 using System;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace OpcUaClient
                 // load the application configuration.
                 await application.LoadApplicationConfiguration("OpcUaClient.Config.xml", silent: false);
                 // check the application certificate.
-                await application.CheckApplicationInstanceCertificate(silent: false, minimumKeySize: 0);
+                await application.CheckApplicationInstanceCertificate(silent: false, minimumKeySize: 0, lifeTimeInMonths: 12*100);
 
                 // create the UA Client object and connect to configured server.
                 UAClient uaClient = new UAClient(application.ApplicationConfiguration, console, ClientBase.ValidateResponse);
